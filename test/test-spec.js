@@ -16,11 +16,12 @@ test.describe('End To End tests example', function() {
     this.timeout(60000);
     var client = {};
 
-    test.before(function(){
-        client = new webdriver.Builder().
-                          withCapabilities(options.desiredCapabilities).
-                          usingServer(options.server).
-                          build();
+    test.before(function(done){
+        client = new webdriver.Builder()
+                          .withCapabilities(options.desiredCapabilities)
+                          .usingServer(options.server)
+                          .build();
+        done();
     });
 
 
@@ -48,7 +49,7 @@ test.describe('End To End tests example', function() {
           client.getSession().then(function (sessionid){
             options.saucelabs.updateJob(sessionid.id_,
                                           { passed: passed },
-                                          function(){ client.quit(); done(); });
+                                          function(done){ client.quit(); done(); });
           });
         } else {
             client.quit();
