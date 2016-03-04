@@ -1,0 +1,34 @@
+{
+  "name": "mochaspec",
+  "version": "1.0.0",
+  "description": "mocha-travis-saucelabs",
+  "main": "",
+  "scripts": {
+    "test": "_mocha",
+
+    "test-report-html": "_mocha -R doc > test.html",
+    "test-report-md": "_mocha -R markdown > test.md",
+    "matrix-saucelabs" : "curl -o matrix.svg https://saucelabs.com/browser-matrix/misterdevo.svg"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/MisterDevo/mochaspec.git"
+  },
+  "keywords": [
+    "mocha",
+    "travis",
+    "saucelab"
+  ],
+  "author": "misterdevo",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/MisterDevo/mochaspec/issues"
+  },
+  "homepage": "https://github.com/MisterDevo/mochaspec#readme",
+
+  "devDependencies": {
+    "mocha": "^2.3.4",
+    "saucelabs": "^1.1.0",
+    "selenium-webdriver": "^2.52.0"
+  }
+}
