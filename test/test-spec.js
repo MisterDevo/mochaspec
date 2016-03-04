@@ -2,26 +2,25 @@ var assert = require('assert');
 var test = require('selenium-webdriver/testing'),
     webdriver = require('selenium-webdriver');
 
-var options = require('./trav-sl-opt.js');
-options.baseUrl = 'https://www.google.com';
+// var options = require('./trav-sl-opt.js');
+// options.baseUrl = 'https://www.google.com';
 
-// var options = {
-//   server:'http://127.0.0.1:4444/wd/hub',
-//   desiredCapabilities:{browserName:'firefox'},
-//   baseUrl:'https://www.google.com'
-// };
+var options = {
+  server:'http://127.0.0.1:4444/wd/hub',
+  desiredCapabilities:{browserName:'firefox'},
+  baseUrl:'https://www.google.com'
+};
 
 test.describe('End To End tests example', function() {
 
     this.timeout(60000);
     var client = {};
 
-    test.before(function(done){
+    test.before(function(){
         client = new webdriver.Builder()
                           .withCapabilities(options.desiredCapabilities)
                           .usingServer(options.server)
                           .build();
-        done();
     });
 
 
@@ -44,19 +43,16 @@ test.describe('End To End tests example', function() {
         }
     });
 
-    test.after(function(done) {
+    test.after(function() {
         if(options.saucelabs){
             client.getSession().then(function (sessionid){
               options.saucelabs.updateJob( sessionid.id_, { passed: passed }, function(err, res) {
-                options.saucelabs.stopJob( sessionid.id_, function(err, res) {
-                  client.quit();
-                });
+                client.quit();
+                options.saucelabs.stopJob();
               });
-              done();
             });
         } else {
             client.quit();
-            done();
         }
     });
 
