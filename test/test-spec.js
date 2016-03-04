@@ -47,8 +47,11 @@ test.describe('End To End tests example', function() {
         if(options.saucelabs){
             client.getSession().then(function (sessionid){
               options.saucelabs.updateJob( sessionid.id_, { passed: passed }, function(err, res) {
-                client.quit();
-                done();
+                options.saucelabs.stopJob( sessionid.id_, { }, function(err, res) {
+                  client.quit();
+                  done();
+                });
+
               });
 
             });
