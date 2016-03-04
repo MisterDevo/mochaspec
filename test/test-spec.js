@@ -3,7 +3,7 @@ var test = require('selenium-webdriver/testing'),
     webdriver = require('selenium-webdriver');
 
 var options = require('./trav-sl-opt.js');
-options.baseUrl:'https://www.google.com'
+options.baseUrl = 'https://www.google.com';
 
 // var options = {
 //   server:'http://127.0.0.1:4444/wd/hub',
