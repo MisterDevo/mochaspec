@@ -51,9 +51,7 @@ test.describe('End To End tests example', function() {
                   client.quit();
                   done();
                 });
-
               });
-
             });
         } else {
             client.quit();
