@@ -18,7 +18,7 @@ module.exports = {
         desiredCapabilities: {
             browserName: (process.env._BROWSER || '').replace(/_/g, ' '),
             platform: (process.env._PLATFORM || '').replace(/_/g, ' '),
-            version: process.env._VERSION,
+            version: 'latest',
 
             tags: [process.env.TRAVIS_JOB_NUMBER],
             name:  process.env.TRAVIS_JOB_NUMBER,
