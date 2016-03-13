@@ -33,3 +33,7 @@ env:
       _PLATFORM: "Linux"
     - _BROWSER: "opera"
       _PLATFORM: "Windows_7"
+    - _BROWSER: "iphone"
+      _PLATFORM: "OS_X_10.10"
+    - _BROWSER: "android"
+      _PLATFORM: "Linux"
