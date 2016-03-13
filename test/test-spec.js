@@ -2,17 +2,22 @@ var assert = require('assert');
 var test = require('selenium-webdriver/testing'),
     webdriver = require('selenium-webdriver');
 
-var options = require('./trav-sl-opt.js');
+// change this line to run locally
+var isLocalSeleniumServer = false;
+
+var local = {
+      server: 'http://127.0.0.1:4444/wd/hub',
+      desiredCapabilities: { browserName: 'firefox' }
+    };
+var options = isLocalSeleniumServer ? local : require('./trav-sl-opt.js');
+
+// change this line to adress your app
 options.baseUrl = 'https://www.google.com';
 
-// var options = {
-//   server:'http://127.0.0.1:4444/wd/hub',
-//   desiredCapabilities:{browserName:'firefox'},
-//   baseUrl:'https://www.google.com'
-// };
 
 test.describe('End To End tests example', function() {
 
+    // 90s for iphone bootstrap
     this.timeout(90000);
     var client = {};
 
