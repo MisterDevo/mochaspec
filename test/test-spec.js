@@ -13,7 +13,7 @@ options.baseUrl = 'https://www.google.com';
 
 test.describe('End To End tests example', function() {
 
-    this.timeout(60000);
+    this.timeout(90000);
     var client = {};
 
     test.before(function(){
