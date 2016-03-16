@@ -5,10 +5,7 @@
   "main": "",
   "scripts": {
     "test": "_mocha",
-
-    "test-report-html": "_mocha -R doc > test.html",
-    "test-report-md": "_mocha -R markdown > test.md",
-    "matrix-saucelabs" : "curl -o matrix.svg https://saucelabs.com/browser-matrix/misterdevo.svg"
+    "download-sl-grid" : "curl -o matrix.svg https://saucelabs.com/browser-matrix/misterdevo.svg"
   },
   "repository": {
     "type": "git",
