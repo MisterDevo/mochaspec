@@ -9,7 +9,7 @@ var local = {
       server: 'http://127.0.0.1:4444/wd/hub',
       desiredCapabilities: { browserName: 'firefox' }
     };
-var options = isLocalSeleniumServer ? local : require('./trav-sl-opt.js');
+var options = isLocalSeleniumServer ? local : require('../trav-sl-opt.js');
 
 // change this line to adress your app
 options.baseUrl = 'https://www.google.com';
